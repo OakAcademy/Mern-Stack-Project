@@ -1,10 +1,10 @@
-import { makeStyles } from '@material-ui/core/styles';
+const styles = {
+    sider:{
+        background: '#f0f2f5'
+    },
+    content:{
+        margin:'2rem'
+    }
+}
 
-export default makeStyles((theme) => ({
-
-   [theme.breakpoints.down('sm')]: {
-      mainContainer: {
-         flexDirection: "column-reverse"
-      }
-   }
-}))
+export default styles

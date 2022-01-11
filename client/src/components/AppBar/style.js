@@ -1,7 +1,4 @@
 const styles = {
-  layout: {
-    minHeight: "100vh",
-  },
   header: {
     color: "#fff",
     textAlign: "center",
@@ -17,12 +14,28 @@ const styles = {
   title: {
     color: "white",
     margin: "0",
+    marginRight: "25px",
   },
-  footer: {
-    color: "white",
-    textAlign: "center",
-    background:
-      "linear-gradient(90deg, rgba(246,83,39,1) 0%, rgba(147,27,252,1) 50%, rgba(246,83,39,1) 100%)",
+  avatar: {
+    color: "#f56a00",
+    backgroundColor: "#fde3cf",
+    marginRight: "6px",
+  },
+  userInfo: {
+    position: "absolute",
+    right: "25px",
+    top: "20px",
+    display: "flex",
+    alignItems: "center",
+  },
+  login: {
+    position: "absolute",
+    right: "25px",
+    top: "25px",
+  },
+  homeLink: {
+    display: "flex",
+    alignItems: "center",
   },
 };
 export default styles;

@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
 
-import posts from "./posts"
-import auth from "./auth"
+import stories from "./stories";
+import authentications from "./authentications";
 
 export default combineReducers({
-   posts,
-   auth
-})
+  authentications,
+  stories,
+});

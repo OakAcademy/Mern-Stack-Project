@@ -1,7 +1,14 @@
-export const CREATE = 'CREATE';
-export const UPDATE = 'UPDATE';
-export const DELETE = 'DELETE'
-export const FETCH_ALL = 'FETCH_ALL'
-
-export const AUTH = 'AUTH'
-export const LOGOUT = 'LOGOUT'
+const CREATE_STORY = "CREATE_STORY";
+const UPDATE_STORY = "UPDATE_STORY";
+const DELETE_STORY = "DELETE_STORY";
+const FETCH_ALL_STORIES = "FETCH_ALL_STORIES";
+const AUTHENTICATION = "AUTHENTICATION";
+const LOGOUT = "LOGOUT";
+export {
+  FETCH_ALL_STORIES,
+  CREATE_STORY,
+  UPDATE_STORY,
+  DELETE_STORY,
+  AUTHENTICATION,
+  LOGOUT,
+};

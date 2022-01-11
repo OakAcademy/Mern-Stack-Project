@@ -1,34 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import { Container, Grow, Grid } from "@material-ui/core"
-import { useDispatch } from 'react-redux'
-import { getPosts } from '../../actions/posts'
-import useStyles from './styles'
+import React, { useEffect, useState } from "react";
+import { Layout } from "antd";
+import StoryForm from "../StoryForm/StoryForm";
+import StoryList from "../StoryList/StoryList";
+import styles from "./styles";
+import { useDispatch } from "react-redux";
+import { getStories } from "../../actions/stories";
 
-import Posts from '../Posts/Posts'
-import Form from '../Form/Form'
+const { Sider, Content } = Layout;
 
 const Home = () => {
-   const [currentId, setCurrentId] = useState(null)
-   const dispatch = useDispatch()
-   const classes = useStyles()
-   useEffect(() => {
-      dispatch(getPosts())
-   }, [currentId, dispatch])
+  const [selectedId, setSelectedId] = useState(null);
+  const dispatch = useDispatch();
 
-   return (
-      <Grow in>
-         <Container>
-            <Grid className={classes.mainContainer} container justifyContent="space-between" alignItems="stretch" spacing={4} >
-               <Grid item xs={12} sm={7}>
-                  <Posts setCurrentId={setCurrentId} />
-               </Grid>
-               <Grid item xs={12} sm={4}>
-                  <Form currentId={currentId} setCurrentId={setCurrentId} />
-               </Grid>
-            </Grid>
-         </Container>
-      </Grow>
-   )
-}
+  useEffect(() => {
+    dispatch(getStories());
+  }, [dispatch]);
+  return (
+    <Layout>
+      <Sider
+        width={400}
+        style={styles.sider}
+        // breakpoint="md"
+        // collapsedWidth="0"
+      >
+        <StoryForm selectedId={selectedId} setSelectedId={setSelectedId} />
+      </Sider>
+      <Content style={styles.content}>
+        <StoryList setSelectedId={setSelectedId} />
+      </Content>
+    </Layout>
+  );
+};
 
-export default Home
+export default Home;

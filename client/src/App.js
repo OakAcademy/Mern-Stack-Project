@@ -1,23 +1,26 @@
-import React from 'react'
-import { Container } from "@material-ui/core"
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React from "react";
+import { Layout } from "antd";
+import Home from "./components/Home";
+import styles from "./styles";
+import AppBar from "./components/AppBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AuthForm from "./components/AuthForm";
 
-import { Navbar } from './components/Navbar/Navbar'
-import Home from './components/Home/Home'
-import Auth from './components/Auth/Auth'
+const { Footer } = Layout;
 
 const App = () => {
-   return (
-      <BrowserRouter>
-         <Container maxWidth="lg">
-            <Navbar />
-            <Switch>
-               <Route path="/" exact component={Home} />
-               <Route path="/auth" exact component={Auth} />
-            </Switch>
-         </Container>
-      </BrowserRouter>
-   )
-}
+  return (
+    <BrowserRouter>
+      <Layout style={styles.layout}>
+        <AppBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/authform" element={<AuthForm />} />
+        </Routes>
+        <Footer style={styles.footer}>2021 Instaverse</Footer>
+      </Layout>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;

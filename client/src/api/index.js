@@ -1,20 +1,23 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API = axios.create({ baseURL: 'https://localhost:5001' })
+const api = axios.create({ baseURL: "http://localhost:5001" });
 
-API.interceptors.request.use((req) => {
-   if (localStorage.getItem('profile')) {
-      req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
-   }
+api.interceptors.request.use((req) => {
+  if (localStorage.getItem("profile")) {
+    req.headers.Authorization = `Bearer ${
+      JSON.parse(localStorage.getItem("profile")).token
+    }`;
+  }
 
-   return req;
-})
+  return req;
+});
 
-export const fetchPosts = () => API.get('/posts')
-export const createPost = (newPost) => API.post('/posts', newPost)
-export const updatePost = (id, updatedPost) => API.patch(`/posts/${id}`, updatedPost)
-export const deletePost = (id) => API.delete(`/posts/${id}`)
-export const likePost = (id) => API.patch(`/posts/${id}/likePost`)
+export const fetchStories = () => api.get("/stories");
+export const createStory = (newStory) => api.post("/stories", newStory);
+export const updateStory = (id, updatedStory) =>
+  api.patch(`/stories/${id}`, updatedStory);
+export const deleteStory = (id) => api.delete(`/stories/${id}`);
+export const likeStory = (id) => api.patch(`/stories/${id}/likeStory`);
 
-export const signIn = (formData) => API.post('/user/signin', formData)
-export const signUp = (formData) => API.post('/user/signup', formData)
+export const login = (formValues) => api.post("/user/login", formValues);
+export const signup = (formValues) => api.post("/user/signup", formValues);
